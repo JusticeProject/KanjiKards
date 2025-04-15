@@ -1,0 +1,7 @@
+<resources>
+   <declare-styleable name="WrappingTextView">
+       <attr name="topCharSize" format="dimension" />
+       <attr name="mainCharSize" format="dimension" />
+       <attr name="padding" format="dimension" />
+   </declare-styleable>
+</resources>

@@ -1,0 +1,8 @@
+<resources>
+    <integer name="card_flip_time_full">300</integer>
+    <integer name="card_flip_time_half">150</integer>
+    
+    <integer name="SEARCH_REQUEST">1</integer>
+    <integer name="BROWSE_REQUEST">2</integer>
+    <integer name="EDIT_CARD_REQUEST">3</integer>
+</resources>

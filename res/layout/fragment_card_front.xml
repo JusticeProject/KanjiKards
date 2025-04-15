@@ -1,0 +1,17 @@
+<com.mozdeth.kanjikards.SlidingFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+	<TextView
+	    android:id="@+id/textKanji"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:background="#ffffffff"
+	    android:gravity="center_vertical|center_horizontal"
+	    android:text="@string/Front"
+	    android:textColor="#ff000000"
+	    android:textSize="148sp" />
+	
+</com.mozdeth.kanjikards.SlidingFrameLayout>
+
+<!-- android:textAppearance="?android:attr/textAppearanceLarge" -->

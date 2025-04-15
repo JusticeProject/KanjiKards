@@ -1,0 +1,66 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/editCardLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/titleKanji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/edit_title_kanji"
+        android:textColor="#ff000000"
+        android:textSize="40sp" />
+    
+    <EditText
+        android:id="@+id/editOn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_on_hint"
+        android:inputType="textMultiLine"
+        android:paddingLeft="12dp"
+        android:textSize="22sp" />
+    
+    <EditText
+        android:id="@+id/editKun"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_kun_hint"
+        android:inputType="textMultiLine"
+        android:paddingLeft="12dp"
+        android:textSize="22sp" />
+    
+    <EditText
+        android:id="@+id/editEnglish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_english_hint"
+        android:inputType="textMultiLine"
+        android:paddingLeft="12dp"
+        android:textSize="22sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="?android:attr/buttonBarStyle" >
+
+        <Button
+            android:id="@+id/cancel_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="?android:attr/buttonBarButtonStyle"
+            android:text="@string/dialog_cancel" />
+
+        <Button
+            android:id="@+id/save_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="?android:attr/buttonBarButtonStyle"
+            android:text="@string/dialog_save" />
+
+    </LinearLayout>
+
+</LinearLayout>
