@@ -9,26 +9,26 @@ import android.os.Bundle;
 
 public class DialogJump extends DialogFragment
 {
-	public interface JumpListener
-	{
-		public void onJumpDeck();
-	}
-	
-	JumpListener m_listener = null;
-	
+    public interface JumpListener
+    {
+        public void onJumpDeck();
+    }
+    
+    JumpListener m_listener = null;
+    
     //*********************************************************************************************
-	
-	@Override
+    
+    @Override
     public void onAttach(Activity activity)
     {
         super.onAttach(activity);
 
         // save the listener so we can send events to the host
-    	m_listener = (JumpListener)activity;
+        m_listener = (JumpListener)activity;
     }
     
     //*********************************************************************************************
-	
+    
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState)
     {
@@ -40,7 +40,7 @@ public class DialogJump extends DialogFragment
                {
                    public void onClick(DialogInterface dialog, int which)
                    {
-                	   onOK();
+                       onOK();
                    }
                })
                .setNegativeButton(R.string.dialog_cancel, null);
@@ -53,9 +53,9 @@ public class DialogJump extends DialogFragment
     
     private void onOK()
     {
-    	if (m_listener != null)
-    	{
-    		m_listener.onJumpDeck();
-    	}
+        if (m_listener != null)
+        {
+            m_listener.onJumpDeck();
+        }
     }
 }

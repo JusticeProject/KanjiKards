@@ -16,41 +16,41 @@ public class CardFrontFragment extends Fragment
     private String m_kanji = "";
     
     //*************************************************************************
-	
-	public static CardFrontFragment newInstance(KanjiEntry entry)
-	{
-		CardFrontFragment cardFragment = new CardFrontFragment();
-		
-		if (entry != null)
-		{
-			// send the arguments to the fragment that we created
-			Bundle args = new Bundle();
-			args.putString(KANJI_KEY, entry.getKanji());
-			cardFragment.setArguments(args);
-		}
-		
-		return cardFragment;
-	}
+    
+    public static CardFrontFragment newInstance(KanjiEntry entry)
+    {
+        CardFrontFragment cardFragment = new CardFrontFragment();
+        
+        if (entry != null)
+        {
+            // send the arguments to the fragment that we created
+            Bundle args = new Bundle();
+            args.putString(KANJI_KEY, entry.getKanji());
+            cardFragment.setArguments(args);
+        }
+        
+        return cardFragment;
+    }
     
     //*************************************************************************
     
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
-    	super.onCreate(savedInstanceState);
-    	
-    	if (savedInstanceState == null)
-    	{
-    		Bundle args = getArguments();
-    		if (args != null)
-    		{
-    			m_kanji = args.getString(KANJI_KEY);
-    		}
-    	}
-    	else
-    	{
-    		m_kanji = savedInstanceState.getString(KANJI_KEY);
-    	}
+        super.onCreate(savedInstanceState);
+        
+        if (savedInstanceState == null)
+        {
+            Bundle args = getArguments();
+            if (args != null)
+            {
+                m_kanji = args.getString(KANJI_KEY);
+            }
+        }
+        else
+        {
+            m_kanji = savedInstanceState.getString(KANJI_KEY);
+        }
     }
     
     //*************************************************************************
@@ -60,10 +60,10 @@ public class CardFrontFragment extends Fragment
     {
         View rootView = inflater.inflate(R.layout.fragment_card_front, container, false);
 
-    	TextView kanjiText = (TextView)rootView.findViewById(R.id.textKanji);
-    	kanjiText.setText(m_kanji);
-    	kanjiText.setTypeface(Utilities.getJapaneseFont());
-    	
+        TextView kanjiText = (TextView)rootView.findViewById(R.id.textKanji);
+        kanjiText.setText(m_kanji);
+        kanjiText.setTypeface(Utilities.getJapaneseFont());
+        
         return rootView;
     }
     
@@ -72,7 +72,7 @@ public class CardFrontFragment extends Fragment
     @Override
     public void onSaveInstanceState(Bundle outState)
     {
-    	super.onSaveInstanceState(outState);
-    	outState.putString(KANJI_KEY, m_kanji);
+        super.onSaveInstanceState(outState);
+        outState.putString(KANJI_KEY, m_kanji);
     }
 }

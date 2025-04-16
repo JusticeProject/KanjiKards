@@ -20,7 +20,7 @@ public class DialogHelp extends DialogFragment
                {
                    public void onClick(DialogInterface dialog, int which)
                    {
-                	   // Don't do anything special when user clicks OK
+                       // Don't do anything special when user clicks OK
                    }
                });
         

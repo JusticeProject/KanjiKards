@@ -9,66 +9,66 @@ import android.os.Bundle;
 
 public class DialogSettings extends DialogFragment
 {
-	public static final String RANDOM_KEY = "DIALOG_SAVE_RANDOM";
-	public static final String ANIMATION_KEY = "DIALOG_SAVE_ANIMATION";
+    public static final String RANDOM_KEY = "DIALOG_SAVE_RANDOM";
+    public static final String ANIMATION_KEY = "DIALOG_SAVE_ANIMATION";
     boolean m_random = false;
     boolean m_animationOn = true;
     
     //*********************************************************************************************
     
-	public interface SettingsListener
-	{
-		public void onSettingsChanged(boolean random, boolean animationOn);
-	}
-	
-	SettingsListener m_listener = null;
-	
-	//*********************************************************************************************
-	
-	public static DialogSettings newInstance(boolean random, boolean animationOn)
-	{
-		DialogSettings dlg = new DialogSettings();
-		
-		Bundle args = new Bundle();
-		args.putBoolean(RANDOM_KEY, random);
-		args.putBoolean(ANIMATION_KEY, animationOn);
-		dlg.setArguments(args);
-		
-		return dlg;
-	}
-	
-	//*********************************************************************************************
+    public interface SettingsListener
+    {
+        public void onSettingsChanged(boolean random, boolean animationOn);
+    }
+    
+    SettingsListener m_listener = null;
+    
+    //*********************************************************************************************
+    
+    public static DialogSettings newInstance(boolean random, boolean animationOn)
+    {
+        DialogSettings dlg = new DialogSettings();
+        
+        Bundle args = new Bundle();
+        args.putBoolean(RANDOM_KEY, random);
+        args.putBoolean(ANIMATION_KEY, animationOn);
+        dlg.setArguments(args);
+        
+        return dlg;
+    }
+    
+    //*********************************************************************************************
 
-	@Override
-	public void onCreate(Bundle savedInstanceState)
-	{
-		super.onCreate(savedInstanceState);
-		
-    	if (savedInstanceState == null)
-    	{
-    		Bundle args = getArguments();
-    		if (args != null)
-    		{
-    			m_random = args.getBoolean(RANDOM_KEY);
-    			m_animationOn = args.getBoolean(ANIMATION_KEY);
-    		}
-    	}
-    	else
-    	{
-    		m_random = savedInstanceState.getBoolean(RANDOM_KEY);
-    		m_animationOn = savedInstanceState.getBoolean(ANIMATION_KEY);
-    	}
-	}
-	
-	//*********************************************************************************************
-	
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        
+        if (savedInstanceState == null)
+        {
+            Bundle args = getArguments();
+            if (args != null)
+            {
+                m_random = args.getBoolean(RANDOM_KEY);
+                m_animationOn = args.getBoolean(ANIMATION_KEY);
+            }
+        }
+        else
+        {
+            m_random = savedInstanceState.getBoolean(RANDOM_KEY);
+            m_animationOn = savedInstanceState.getBoolean(ANIMATION_KEY);
+        }
+    }
+    
+    //*********************************************************************************************
+    
     @Override
     public void onAttach(Activity activity)
     {
         super.onAttach(activity);
 
         // save the listener so we can send events to the host
-    	m_listener = (SettingsListener)activity;
+        m_listener = (SettingsListener)activity;
     }
     
     //*********************************************************************************************
@@ -85,24 +85,24 @@ public class DialogSettings extends DialogFragment
         builder.setTitle(R.string.dialog_settings_title)
                .setMultiChoiceItems(choices, initialChecked, new DialogInterface.OnMultiChoiceClickListener()
                {
-            	   @Override
-            	   public void onClick(DialogInterface dialog, int which, boolean isChecked)
-            	   {
-            		   if (0 == which)
-            		   {
-            			   m_random = isChecked;
-            		   }
-            		   else if (1 == which)
-            		   {
-            			   m_animationOn = isChecked;
-            		   }
-            	   }
-			   })
+                   @Override
+                   public void onClick(DialogInterface dialog, int which, boolean isChecked)
+                   {
+                       if (0 == which)
+                       {
+                           m_random = isChecked;
+                       }
+                       else if (1 == which)
+                       {
+                           m_animationOn = isChecked;
+                       }
+                   }
+               })
                .setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener()
                {
                    public void onClick(DialogInterface dialog, int which)
                    {
-                	   onOK();
+                       onOK();
                    }
                })
                .setNegativeButton(R.string.dialog_cancel, null);
@@ -116,19 +116,19 @@ public class DialogSettings extends DialogFragment
     @Override
     public void onSaveInstanceState(Bundle outState)
     {
-    	super.onSaveInstanceState(outState);
+        super.onSaveInstanceState(outState);
 
-    	outState.putBoolean(RANDOM_KEY, m_random);
-    	outState.putBoolean(ANIMATION_KEY, m_animationOn);
+        outState.putBoolean(RANDOM_KEY, m_random);
+        outState.putBoolean(ANIMATION_KEY, m_animationOn);
     }
     
     //*********************************************************************************************
     
     public void onOK()
     {
-    	if (m_listener != null)
-    	{
-    		m_listener.onSettingsChanged(m_random, m_animationOn);
-    	}
+        if (m_listener != null)
+        {
+            m_listener.onSettingsChanged(m_random, m_animationOn);
+        }
     }
 }

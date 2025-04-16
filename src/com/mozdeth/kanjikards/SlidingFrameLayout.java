@@ -7,7 +7,7 @@ import android.widget.FrameLayout;
 public class SlidingFrameLayout extends FrameLayout
 {
     @SuppressWarnings("unused")
-	private static final String TAG = SlidingFrameLayout.class.getName();
+    private static final String TAG = SlidingFrameLayout.class.getName();
 
     public SlidingFrameLayout(Context context)
     {

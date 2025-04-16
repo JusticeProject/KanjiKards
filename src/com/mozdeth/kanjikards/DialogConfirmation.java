@@ -9,26 +9,26 @@ import android.os.Bundle;
 
 public class DialogConfirmation extends DialogFragment
 {
-	public interface ConfirmationListener
-	{
-		public void onSaveConfirmed();
-	}
-	
-	ConfirmationListener m_listener = null;
-	
+    public interface ConfirmationListener
+    {
+        public void onSaveConfirmed();
+    }
+    
+    ConfirmationListener m_listener = null;
+    
     //*********************************************************************************************
-	
-	@Override
+    
+    @Override
     public void onAttach(Activity activity)
     {
         super.onAttach(activity);
 
         // save the listener so we can send events to the host
-    	m_listener = (ConfirmationListener)activity;
+        m_listener = (ConfirmationListener)activity;
     }
     
     //*********************************************************************************************
-	
+    
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState)
     {
@@ -40,7 +40,7 @@ public class DialogConfirmation extends DialogFragment
                {
                    public void onClick(DialogInterface dialog, int which)
                    {
-                	   onOK();
+                       onOK();
                    }
                })
                .setNegativeButton(R.string.dialog_cancel, null);
@@ -53,9 +53,9 @@ public class DialogConfirmation extends DialogFragment
     
     private void onOK()
     {
-    	if (m_listener != null)
-    	{
-    		m_listener.onSaveConfirmed();
-    	}
+        if (m_listener != null)
+        {
+            m_listener.onSaveConfirmed();
+        }
     }
 }

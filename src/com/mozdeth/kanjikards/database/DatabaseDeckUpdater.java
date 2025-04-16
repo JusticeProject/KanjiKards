@@ -6,15 +6,15 @@ import android.os.AsyncTask;
 public class DatabaseDeckUpdater
         extends AsyncTask<Void, Void, Void>
 {
-	private DatabaseHelper m_dbHelper;
-	private int m_id;
-	private int m_requestedDeck;
+    private DatabaseHelper m_dbHelper;
+    private int m_id;
+    private int m_requestedDeck;
 
     public DatabaseDeckUpdater(DatabaseHelper dbHelper, int id, int requestedDeck)
     {
-    	this.m_dbHelper = dbHelper;
-    	this.m_id = id;
-    	this.m_requestedDeck = requestedDeck;
+        this.m_dbHelper = dbHelper;
+        this.m_id = id;
+        this.m_requestedDeck = requestedDeck;
     }
     
     //*********************************************************************
@@ -23,7 +23,7 @@ public class DatabaseDeckUpdater
     @Override
     protected Void doInBackground(Void... args)
     {
-	   	m_dbHelper.updateDeckInDatabase(m_id, m_requestedDeck);
+           m_dbHelper.updateDeckInDatabase(m_id, m_requestedDeck);
         return null;
     }
 }
